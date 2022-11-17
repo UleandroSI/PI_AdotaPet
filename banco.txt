@@ -1,0 +1,61 @@
+CREATE DATABASE bd1;
+
+USE bd1
+=================================================================================
+CREATE TABLE formulario (
+formulario_id int(4) AUTO_INCREMENT,
+formulario_nome varchar(40) NOT NULL,
+formulario_email varchar(100),
+formulario_telefone varchar(12),
+formulario_familiares varchar(200),
+formulario_menores varchar(100),
+formulario_casaApe varchar(11),
+formulario_endereco varchar(100),
+formulario_alimentacao varchar(20),
+formulario_janelas varchar(3),
+formulario_rua varchar(3),
+formulario_castracao varchar(3),
+formulario_cuidados varchar(3),
+formulario_cienteAdocao varchar(3),
+formulario_tratamento varchar(3),
+formulario_link varchar(200),
+formulario_autorizacao varchar(50),
+formulario_data date,
+usuarios_id int(4),
+animais_id int(4),
+PRIMARY KEY (formulario_id)
+);
+
+
+CREATE TABLE usuarios (
+usuarios_id int(4) AUTO_INCREMENT,
+usuarios_nome varchar(40) NOT NULL,
+usuarios_email varchar(100) NOT NULL,
+usuarios_hash varchar(500),
+PRIMARY KEY (usuarios_id)
+);
+
+
+CREATE TABLE animais (
+animais_id int(4) AUTO_INCREMENT,
+animais_especie varchar(20) NOT NULL,
+animais_sexo varchar(5) NOT NULL,
+animais_idade varchar(2) NOT NULL,
+animais_nome varchar(30),
+animais_vacina varchar(3),
+animais_fiv varchar(1),
+animais_felv varchar(1),
+img LONGBLOB NOT NULL,
+usuarios_id int(4),
+PRIMARY KEY (animais_id)
+);
+
+=================================================================================
+ALTER TABLE animais ADD usuarios_id int(4);
+
+ALTER TABLE formulario ADD FOREIGN KEY (usuarios_id) REFERENCES usuarios (usuarios_id);
+ALTER TABLE formulario ADD FOREIGN KEY (animais_id) REFERENCES animais (animais_id);
+
+ALTER TABLE animais ADD CONSTRAINT fk_usuarios FOREIGN KEY (usuarios_id) REFERENCES usuarios (usuarios_id);
+
+=================================================================================
