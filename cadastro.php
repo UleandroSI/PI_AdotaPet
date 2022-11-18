@@ -20,29 +20,25 @@ try {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         // Verifica se email existe
-        $sql = "SELECT 'usuarios_id', 'usuarios_nome', 'usuarios_nivel' FROM 'usuarios' WHERE ('usuarios_email' = '".$email ."') AND ('usuarios_senha' = '". sha1($senha) ."') AND ('usuarios_ativo' = 1) LIMIT 1";
+        //$sql = "SELECT 'usuarios_id', 'usuarios_nome', 'usuarios_nivel' FROM 'usuarios' WHERE ('usuarios_email' = '".$email ."') AND ('usuarios_senha' = '". sha1($senha) ."') AND ('usuarios_ativo' = 1) LIMIT 1";
+        $sql = "SELECT 'usuarios_id', 'usuarios_nome', 'usuarios_nivel' FROM 'usuarios' WHERE ('usuarios_email' = '".$email ."') AND ('usuarios_ativo' = 1) LIMIT 1";
         $query = mysql_query($sql);
         if (mysql_num_rows($query) != 1) {
           // O usuário não foi encontrado
           //echo "Login inválido!"; exit;
-        } else {
-          // Salva os dados encontados na variável $resultado
-          $resultado = mysql_fetch_assoc($query);
-          }
 
-
-        //Criar funcao SALVAR
-        // Inserindo dados
-        $sql = "INSERT INTO usuarios (
-            usuarios_nome, 
-            usuarios_email, 
-            usuarios_hash,
-            usuarios_ativo)
-        VALUES (
-            '$nome', 
-            '$email', 
-            '$senha', 
-            '1')";
+            //Criar funcao SALVAR
+            // Inserindo dados
+            $sql = "INSERT INTO usuarios (
+                usuarios_nome, 
+                usuarios_email, 
+                usuarios_hash,
+                usuarios_ativo)
+            VALUES (
+                '$nome', 
+                '$email', 
+                sha1('$senha'), 
+                '1')";
     
     // begin the transaction
     $conn->beginTransaction();
@@ -58,6 +54,14 @@ try {
         echo $sql . "<br>" . $e->getMessage();
     }
 
+        } else {
+          // Salva os dados encontados na variável $resultado
+          $resultado = mysql_fetch_assoc($query);
+          echo "Falha na gravaçao";
+          }
+
+
+        
     $conn = null;
 
     
