@@ -11,16 +11,15 @@ formulario_familiares varchar(200),
 formulario_menores varchar(100),
 formulario_casaApe varchar(11),
 formulario_endereco varchar(100),
-formulario_alimentacao varchar(20),
+formulario_adaptacao varchar(3),
+formulario_alimentacao varchar(3),
 formulario_janelas varchar(3),
 formulario_rua varchar(3),
-formulario_castracao varchar(3),
-formulario_cuidados varchar(3),
 formulario_cienteAdocao varchar(3),
 formulario_tratamento varchar(3),
-formulario_link varchar(200),
 formulario_autorizacao varchar(50),
-formulario_data date,
+formulario_posAdocao varchar(3),
+formulario_dataRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 usuarios_id int(4),
 animais_id int(4),
 PRIMARY KEY (formulario_id)
@@ -32,26 +31,33 @@ usuarios_id int(4) AUTO_INCREMENT,
 usuarios_nome varchar(40) NOT NULL,
 usuarios_email varchar(100) NOT NULL,
 usuarios_hash varchar(500),
+usuarios_ativo BOOLEAN NOT NULL DEFAULT '1',
+usuarios_dataRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (usuarios_id)
 );
 
 
 CREATE TABLE animais (
 animais_id int(4) AUTO_INCREMENT,
+animais_nome varchar(50),
 animais_especie varchar(20) NOT NULL,
 animais_sexo varchar(5) NOT NULL,
-animais_idade varchar(2) NOT NULL,
-animais_nome varchar(30),
+animais_castrado varchar(3),
 animais_vacina varchar(3),
 animais_fiv varchar(1),
 animais_felv varchar(1),
-img LONGBLOB NOT NULL,
+animais_img varchar(200) NOT NULL,
+animais_status varchar(20),
+animais_lar varchar(60),
+animais_nomeResponsavel varchar(40),
+animais_contatoResponsavel varchar(100),
+animais_ativo BOOLEAN NOT NULL,
+animais_dataRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 usuarios_id int(4),
 PRIMARY KEY (animais_id)
 );
 
 =================================================================================
-ALTER TABLE animais ADD usuarios_id int(4);
 
 ALTER TABLE formulario ADD FOREIGN KEY (usuarios_id) REFERENCES usuarios (usuarios_id);
 ALTER TABLE formulario ADD FOREIGN KEY (animais_id) REFERENCES animais (animais_id);
@@ -59,3 +65,6 @@ ALTER TABLE formulario ADD FOREIGN KEY (animais_id) REFERENCES animais (animais_
 ALTER TABLE animais ADD CONSTRAINT fk_usuarios FOREIGN KEY (usuarios_id) REFERENCES usuarios (usuarios_id);
 
 =================================================================================
+- INSERIR USUARIO ADMIN
+
+INSERT INTO usuarios VALUES (NULL, 'admin', 'admin@adotapet.com', SHA1('admin'), 1, NULL); 

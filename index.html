@@ -43,19 +43,26 @@
       <label for="css">APARTAMENTO</label><br>
       <label for="endereco">Endereco:</label><br>
       <input type="text" id="endereco" name="endereco"><br>
-      <label for="alimentacao">Alimentação:</label><br>
-      <input type="text" id="Alimentacao" name="alimentacao"><br>
-      <label for="janelas">Janelas:</label><br>
-      <input type="text" id="janelas" name="janelas"><br>
-      <label for="rua">Rua:</label><br>
-      <input type="text" id="rua" name="rua"><br>
-      <label for="html">Será castrado?</label><br>
-      <input type="radio" id="castra_sim" name="castracao" value="Sim">
+      <label for="html">Tera periodo de adaptação?</label><br>
+      <input type="radio" id="adaptacao_sim" name="adaptacao" value="sim">
+      <label for="html">Sim</label>
+      <input type="radio" id="adaptacao_nao" name="adaptacao" value="nao">
+      <label for="css">Não</label><br>
+      <label for="html">Tem condiçoes de alimentar?</label><br>
+      <input type="radio" id="alimentacao_sim" name="alimentacao" value="sim">
+      <label for="html">Sim</label>
+      <input type="radio" id="alimentacao_nao" name="alimentacao" value="nao">
+      <label for="css">Não</label><br>   
+      <label for="html">Janelas sao teladas?</label><br>
+      <input type="radio" id="janelas_sim" name="janelas" value="sim">
+      <label for="html">Sim</label>
+      <input type="radio" id="janelas_nao" name="janelas" value="nao">
+      <label for="css">Não</label><br> 
+      <label for="html">Acesso a Rua?</label><br>
+      <input type="radio" id="rua_sim" name="rua" value="Sim">
       <label for="html">SIM</label>
-      <input type="radio" id="castra_nao" name="castracao" value="Nao">
+      <input type="radio" id="rua_nao" name="rua" value="Nao">
       <label for="css">NãO</label><br>
-      <label for="cuidados">Cuidados:</label><br>
-      <input type="text" id="cuidados" name="cuidados"><br>
       <label for="html">Familia esta ciente da adoção?</label><br>
       <input type="radio" id="ciente_sim" name="cienteAdocao" value="Sim">
       <label for="html">SIM</label>
@@ -66,29 +73,20 @@
       <label for="html">SIM</label>
       <input type="radio" id="tratamento_nao" name="tratamento" value="Nao">
       <label for="css">NãO</label><br>
-      <label for="link">Link:</label><br>
-      <input type="text" id="link" name="link"><br>
       <label for="autorizacao">Autorização:</label><br>
       <input type="text" id="autorizacao" name="autorizacao"><br>
-      <input type="submit" value="Submit"><br>
-      <button type="button" onclick="alert('Hello World!')">Login</button> 
+      <label for="html">Concorda com pós adoção?</label><br>
+      <input type="radio" id="adocao_sim" name="posAdocao" value="Sim">
+      <label for="html">SIM</label>
+      <input type="radio" id="adocao_nao" name="posAdocao" value="Nao">
+      <label for="css">NãO</label><br>
+
+      <input type="submit" value="Submit">
+      <input type=button value='---'>
+      <input type=button onClick="parent.location='login.html'" value='Login'>
     </form> 
 
-    <!-- Footer-->
-    <footer class="footer">
-        <div>
-          <a href="https://github.com/uleandrosi">
-            <img src="https://img.icons8.com/fluency/96/000000/github.png" alt="Github">
-          </a>
-          <a href=mailto:uleandrosp@gmail.com?subject="Contato Ficha Leitura">
-            <img src="https://img.icons8.com/fluency/96/000000/apple-mail.png" alt="E-mail">
-          </a>
-          <p> Desenvolvido por: &copy;uLeandroTI</p>
-          <p><a href="https://icons8.com/icon/7rhqrO588QcU/mail">Icon by Icons8</a></p>
-        </div>
-
-
-      </footer>
+    
   </main>
 </body>
 </html>

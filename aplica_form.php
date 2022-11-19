@@ -10,15 +10,14 @@
     $menores = addslashes($_POST['menores']);
     $casaApe = addslashes($_POST['casaApe']);
     $endereco = addslashes($_POST['endereco']);
+    $adaptacao = addslashes($_POST['adaptacao']);
     $alimentacao = addslashes($_POST['alimentacao']);
     $janelas = addslashes($_POST['janelas']);
     $rua = addslashes($_POST['rua']);
-    $castracao = addslashes($_POST['castracao']);
-    $cuidados = addslashes($_POST['cuidados']);
     $cienteAdocao = addslashes($_POST['cienteAdocao']);
     $tratamento = addslashes($_POST['tratamento']);
-    $link = addslashes($_POST['link']);
     $autorizacao = addslashes($_POST['autorizacao']);
+    $posAdocao = addslashes($_POST['posAdocao']);
 
     try {
         // Criando a conexao
@@ -35,15 +34,14 @@
             formulario_menores, 
             formulario_casaApe, 
             formulario_endereco,
+            formulario_adaptacao,
             formulario_alimentacao, 
             formulario_janelas, 
-            formulario_rua, 
-            formulario_castracao, 
-            formulario_cuidados,
+            formulario_rua,
             formulario_cienteAdocao,
             formulario_tratamento,
-            formulario_link,
             formulario_autorizacao,
+            formulario_posAdocao,
             formulario_data)
         VALUES (
             '$nome', 
@@ -53,15 +51,14 @@
             '$menores', 
             '$casaApe', 
             '$endereco',
+            '$adaptacao',
             '$alimentacao', 
             '$janelas', 
-            '$rua', 
-            '$castracao', 
-            '$cuidados',
+            '$rua',
             '$cienteAdocao',
             '$tratamento',
-            '$link',
             '$autorizacao',
+            '$posAdocao',
             NOW())";
     
     // begin the transaction
@@ -82,5 +79,5 @@
 
     
     // Redireciona a pagina
-    header("Location: login.html"); exit;
+    header("Location: index.html"); exit;
 ?>
