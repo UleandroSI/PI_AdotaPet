@@ -35,10 +35,11 @@ include_once("banco.php");
     } else {
         // Salva os dados encontrados na variável $resultado
         $resultado = mysql_fetch_assoc($query);
-        echo "$resultado"
+        echo "$resultado";
 
         // Se a sessão não existir, inicia uma
-        if (!isset($_SESSION)) session_start();
+        if (!isset($_SESSION)) { 
+          session_start();
 
         // Salva os dados encontrados na sessão
         $_SESSION['UsuarioID'] = $resultado['usuarios_id'];
@@ -54,14 +55,15 @@ include_once("banco.php");
         //header( "refresh:3;url=login.html" );
       }
 
-    } catch(PDOException $e) {
+    } 
+  }catch(PDOException $e) {
         // roll back the transaction if something failed
-        $conn->rollback();
+        //$conn->rollback();
         echo $sql . "<br>" . $e->getMessage();
     }
 
         // Redireciona o visitante
-        header("Location: tryhow_css_parallax_demo.htm"); exit;
+        //header("Location: tryhow_css_parallax_demo.htm"); exit;
 
 
     $conn = null;

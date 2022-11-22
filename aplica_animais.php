@@ -1,7 +1,8 @@
 <?php
     header("Content-type: text/html; charset=utf-8");
-    header("Location: index.html");
+    //header("Location: index.html");
     include_once("banco.php");
+    include_once("func.php");
 
     // Recebendo dados do form
     $nome = addslashes($_POST['nome']);
