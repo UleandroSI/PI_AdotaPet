@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Armazenar leituras feitas para consulta posterior.">
+    <meta name="keywords" content="leitura, livro, livros, compreenção de texto, textos">
+    <meta name="author" content="uLeandroSP">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="author" href="https://github.com/UleandroSI/Ficha-de-leitura">
+    <link rel="license" href="MIT License">
+    <link rel="icon" type="image/x-icon" href="Caminho da imagem .ico">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <title>Aplica Animais</title>
+</head>
+
+<body>
+  <main class="main">
+    <!-- Header-->
+    <header class="header">
+      <h1>Dados do Animal</h1>
+    </header>
+
+    <form action="aplica_animais.php" method="post">
+      <label for="nome">Nome:</label><br>
+      <input type="text" id="nome" name="nome"><br>
+      <label for="especie">Especie:</label><br>
+      <input type="text" id="especie" name="especie"><br>
+      <label for="status">Sexo:</label><br>
+      <select id="sexo" name="sexo">
+        <option value="macho">Macho</option>
+        <option value="femea">Femea</option>
+      </select><br>
+      <label for="castrado">Castrado</label><br>
+      <input type="radio" id="castrado_sim" name="castrado" value="sim">
+      <label for="sim">Sim</label>
+      <input type="radio" id="castrado_nao" name="castrado" value="nao">
+      <label for="nao">Não</label><br> 
+      <label for="vacinado">Vacinado:</label><br>
+      <input type="radio" id="vacinado_sim" name="vacinado" value="sim">
+      <label for="sim">Sim</label>
+      <input type="radio" id="vacinado_nao" name="vacinado" value="nao">
+      <label for="nao">Não</label><br>
+      <label for="fiv">Possui FIV testado:</label><br>
+      <select id="fiv" name="fiv">
+        <option value="s">Sim</option>
+        <option value="n">Nao</option>
+      </select><br>
+      <label for="felv">FELV</label><br>
+      <input type="radio" id="felv_sim" name="felv" value="s">
+      <label for="sim">Sim</label>
+      <input type="radio" id="felv_nao" name="felv" value="n">
+      <label for="nao">Não</label><br>   
+      <label for="foto">Foto:</label><br>
+      <input type="text" id="foto" name="foto"><br>
+      <label for="status">Status:</label><br>
+      <select id="status" name="status">
+        <option value="adotado">Adotado</option>
+        <option value="adotadon">Não Adotado</option>
+      </select><br>
+      <label for="endereco">Endereço do lar:</label><br>
+      <input type="text" id="endereco" name="endereco"><br>
+      <label for="responsavel">Nome do responsavel:</label><br>
+      <input type="text" id="responsavel" name="responsavel"><br>
+      <label for="contato">Contato:</label><br>
+      <input type="text" id="contato" name="contato"><br>
+
+
+      <input type="submit" value="Submit">
+    </form> 
+
+  </main>
+</body>
+</html>

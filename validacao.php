@@ -21,7 +21,8 @@ include_once("banco.php");
     // Validação do usuário/senha digitados
     $sql = "SELECT usuarios_id, usuarios_email 
       FROM usuarios 
-      WHERE (usuarios_nome = ".$usuario .") AND (usuarios_hash = ". sha1($senha) .") AND (usuarios_ativo = 1) LIMIT 1";
+      WHERE usuarios_nome = '.$usuario .' AND usuarios_hash = '. sha1($senha) .' AND usuarios_ativo = 1 LIMIT 1";
+      //WHERE (usuarios_nome = ".$usuario .") AND (usuarios_hash = ". sha1($senha) .") AND (usuarios_ativo = 1) LIMIT 1";
     
     // begin the transaction
     $conn->beginTransaction();
@@ -63,7 +64,7 @@ include_once("banco.php");
     }
 
         // Redireciona o visitante
-        //header("Location: tryhow_css_parallax_demo.htm"); exit;
+        header("Location: modelo.html"); exit;
 
 
     $conn = null;
