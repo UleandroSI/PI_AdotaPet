@@ -11,21 +11,24 @@ function conectaBD() {
             $conn = $e;
             }
 
-    return $conn, $resultado;
+    return ["$conn, $resultado"];
 }
 
 function salvarUsuario(){
+    echo "Chama funf conexao"
     $conn, $resultado = conectaBD();
+    
     // Inserindo dados
     $sql = "INSERT INTO usuarios (
         usuarios_nome, 
         usuarios_email, 
         usuarios_hash,
         usuarios_ativo)
-    VALUES (
-    '$nome', 
-    '$email', 
-    '$senha', 
-    '1')";
-    
+        VALUES (
+            '$nome',
+            '$email',
+            '$senha',
+            '1')";
+    echo "retornar func."
+    return $conn;
 }

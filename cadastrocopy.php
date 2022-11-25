@@ -1,12 +1,15 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
-include_once("banco.php");
-include_once("func.php");
+include("banco.php");
+include("func.php");
 
 
 // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
 if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']))) {
-    header("Location: cadastro.html"); exit;
+    //header("Location: cadastro.html"); exit;
+    echo "verifica se tem dados";
+  } else{
+    echo "Dados vazios.";
   }
 
 // Recebendo dados do form cadastro
@@ -14,7 +17,11 @@ if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']))) {
     $email = addslashes($_POST['email']);
     $senha = addslashes($_POST['senha']);
         
-$conn, $conectado = conectaBD();
+$lista = conectaBD();
+
+$conn = $lista[0]; 
+$conectado = $lista[1];
+
 if ($conectado = "sim"){
   // begin the transaction
   $conn->beginTransaction();
@@ -28,24 +35,25 @@ if ($conectado = "sim"){
     // O usuário não foi encontrado
     //echo "Login inválido!"; exit;
     //Chama funcao SALVAR
+    echo "Chama func salvar.";
     $salva = salvarUsuario();
-  
-  // begin the transaction
-  $conn->beginTransaction();
-  // use exec() because no results are returned
-  $conn->exec($sql);
-  // commit the transaction
-  $conn->commit();
 
-  echo "New record created successfully";
-  } else {
-    // Salva os dados encontados na variável $resultado
-    $resultado = mysql_fetch_assoc($query);
-    }
-} else{}
+    // begin the transaction
+    $conn->beginTransaction();
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    // commit the transaction
+    $conn->commit();
+    echo "New record created successfully";
+    } else {
+      // Salva os dados encontados na variável $resultado
+      $resultado = mysql_fetch_assoc($query);
+      }
+} else{
+  $conn = null;
+  // Redireciona a pagina
+  //header("Location: login.html"); exit;
 
-$conn = null;
-// Redireciona a pagina
-header("Location: login.html"); exit;
+}
 
 ?>
