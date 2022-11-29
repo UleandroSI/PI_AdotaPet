@@ -38,6 +38,10 @@ ___
 
 [PHP.NET](https://www.php.net/manual/pt_BR/)
 
+[PHP session_start]("https://www.devmedia.com.br/sistema-de-autenticacao-de-usuarios-em-php-usando-sessoes-e-mysql/37258#:~:text=Verificando%20se%20usuário%20está%20logado%20no%20sistema&text=php%20que%20verifica%20a%20sessão,da%20sessão%20de%20login%20if(!")
+
+[PHP query Mysql](http://www.linhadecodigo.com.br/artigo/3455/funcoes-de-comunicacao-com-banco-de-dados-mysql-no-php.aspx)
+
 [W3Scools Mysql](https://www.w3schools.com/mysql/default.asp)
 
 [Tela de login com niveis de acesso](https://www.devmedia.com.br/php-sistema-de-login-com-niveis-de-acesso/37217)

@@ -27,59 +27,59 @@
 
     <form action="aplica_form.php" method="post">
       <label for="nome">Nome:</label><br>
-      <input type="text" id="nome" name="nome"><br>
+      <input type="text" id="nome" name="nome" required><br>
       <label for="email">e-mail:</label><br>
-      <input type="text" id="email" name="email"><br>
+      <input type="email" id="email" name="email"><br>
       <label for="telefone">Telefone:</label><br>
-      <input type="text" id="telefone" name="telefone"><br>
+      <input type="tel" id="telefone" name="telefone" placeholder="Somente numeros" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" required><br>
       <label for="familiares">familiares:</label><br>
       <input type="text" id="familiares" name="familiares"><br>
       <label for="menores">Menores:</label><br>
       <input type="text" id="menores" name="menores"><br>
-      <label for="html">Casa ou apartamento:</label><br>
-      <input type="radio" id="casa" name="casaApe" value="casa">
-      <label for="html">CASA</label>
-      <input type="radio" id="apartamento" name="casaApe" value="apartamento">
-      <label for="css">APARTAMENTO</label><br>
+      <label for="casaApe">Casa ou apartamento?</label><br>
+      <select id="casaApe" name="casaApe">
+        <option value="casa">CASA</option>
+        <option value="apartamento">APARTAMENTO</option>
+      </select><br>
       <label for="endereco">Endereco:</label><br>
       <input type="text" id="endereco" name="endereco"><br>
-      <label for="html">Tera periodo de adaptação?</label><br>
-      <input type="radio" id="adaptacao_sim" name="adaptacao" value="sim">
-      <label for="html">Sim</label>
-      <input type="radio" id="adaptacao_nao" name="adaptacao" value="nao">
-      <label for="css">Não</label><br>
-      <label for="html">Tem condiçoes de alimentar?</label><br>
-      <input type="radio" id="alimentacao_sim" name="alimentacao" value="sim">
-      <label for="html">Sim</label>
-      <input type="radio" id="alimentacao_nao" name="alimentacao" value="nao">
-      <label for="css">Não</label><br>   
-      <label for="html">Janelas sao teladas?</label><br>
-      <input type="radio" id="janelas_sim" name="janelas" value="sim">
-      <label for="html">Sim</label>
-      <input type="radio" id="janelas_nao" name="janelas" value="nao">
-      <label for="css">Não</label><br> 
-      <label for="html">Acesso a Rua?</label><br>
-      <input type="radio" id="rua_sim" name="rua" value="Sim">
-      <label for="html">SIM</label>
-      <input type="radio" id="rua_nao" name="rua" value="Nao">
-      <label for="css">NãO</label><br>
-      <label for="html">Familia esta ciente da adoção?</label><br>
-      <input type="radio" id="ciente_sim" name="cienteAdocao" value="Sim">
-      <label for="html">SIM</label>
-      <input type="radio" id="ciente_nao" name="cienteAdocao" value="Nao">
-      <label for="css">NãO</label><br>
-      <label for="html">Tratamento?</label><br>
-      <input type="radio" id="tratamento_sim" name="tratamento" value="Sim">
-      <label for="html">SIM</label>
-      <input type="radio" id="tratamento_nao" name="tratamento" value="Nao">
-      <label for="css">NãO</label><br>
-      <label for="autorizacao">Autorização:</label><br>
-      <input type="text" id="autorizacao" name="autorizacao"><br>
-      <label for="html">Concorda com pós adoção?</label><br>
-      <input type="radio" id="adocao_sim" name="posAdocao" value="Sim">
-      <label for="html">SIM</label>
-      <input type="radio" id="adocao_nao" name="posAdocao" value="Nao">
-      <label for="css">NãO</label><br>
+      <label for="adaptacao">Tera periodo de adaptação?</label><br>
+      <select id="adaptacao" name="adaptacao">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br>
+      <label for="alimentacao">Tem condiçoes de alimentar?</label><br>
+      <select id="alimentacao" name="alimentacao">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br>
+      <label for="janelas">Janelas sao teladas?</label><br>
+      <select id="janelas" name="janelas">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br>
+      <label for="rua">Acesso a Rua?</label><br>
+      <select id="rua" name="rua">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br>
+      <label for="cienteAdocao">Familia esta ciente da adoção?</label><br>
+      <select id="cienteAdocao" name="cienteAdocao">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br>
+      <label for="tratamento">Tratamento?</label><br>
+      <select id="tratamento" name="tratamento">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br>
+      <label for="autorizacao">Selecione a Autorização:</label><br>
+      <input type="file" id="autorizacao" name="autorizacao"><br>
+      <label for="posAdocao">Concorda com pós adoção?</label><br>
+      <select id="posAdocao" name="posAdocao">
+        <option value="sim">SIM</option>
+        <option value="nao">NÃO</option>
+      </select><br><br>
 
       <input type="submit" value="Submit">
       <input type=button value='---'>

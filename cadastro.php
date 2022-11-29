@@ -1,11 +1,10 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
-include_once("banco.php");
-
+include_once("conexao.php");
 
 // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
 if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']))) {
-    header("Location: cadastro.html"); exit;
+    //header("Location: cadastro.html"); exit;
   }
 
 // Recebendo dados do form cadastro
@@ -13,55 +12,42 @@ if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']))) {
     $email = addslashes($_POST['email']);
     $senha = addslashes($_POST['senha']);
 
-try {
-        // Criando a conexao
-        $conn = new PDO("mysql:host=$host;dbname=$database", $user, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        // Verifica se email existe
-        $sql = "SELECT 'usuarios_id', 'usuarios_nome', 'usuarios_nivel' FROM 'usuarios' WHERE ('usuarios_email' = '".$email ."') AND ('usuarios_senha' = '". sha1($senha) ."') AND ('usuarios_ativo' = 1) LIMIT 1";
-        $query = mysql_query($sql);
-        if (mysql_num_rows($query) != 1) {
-          // O usuário não foi encontrado
-          //echo "Login inválido!"; exit;
-        } else {
-          // Salva os dados encontados na variável $resultado
-          $resultado = mysql_fetch_assoc($query);
-          }
-
-
-        //Criar funcao SALVAR
-        // Inserindo dados
-        $sql = "INSERT INTO usuarios (
-            usuarios_nome, 
-            usuarios_email, 
-            usuarios_hash,
-            usuarios_ativo)
+// Verifica se email existe
+$login = "SELECT usuarios_id, usuarios_nome, usuarios_ativo FROM usuarios WHERE usuarios_email = '$email' && usuarios_ativo = 1 LIMIT 1";
+$result = mysqli_query($conn, $login);
+$res = mysqli_fetch_assoc($result);
+//$res = mysql_fetch_row($result);
+if(empty($res)){
+    // O usuário não foi encontrado, insere no banco.
+    $sql = "INSERT INTO usuarios (
+        usuarios_nome, 
+        usuarios_email, 
+        usuarios_hash,
+        usuarios_ativo)
         VALUES (
             '$nome', 
             '$email', 
-            '$senha', 
+            md5('.$senha.'), 
             '1')";
-    
-    // begin the transaction
-    $conn->beginTransaction();
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    // commit the transaction
-    $conn->commit();
 
-    echo "New record created successfully";
-    } catch(PDOException $e) {
-        // roll back the transaction if something failed
-        $conn->rollback();
-        echo $sql . "<br>" . $e->getMessage();
+    $resultado = mysqli_query($conn, $sql);
+    $exec = mysqli_fetch_assoc($resultado);
+    if (mysql_num_rows($exec) != 1){
+        echo "Inserido.";
+        header("Location: modelo.html");
+    }else{
+        header('location:restrito.php');
     }
+    
+}else{
+    echo "Usuário já existe.";
+    header('location:login.php');
+  }
 
-    $conn = null;
+$conn->close();
 
     
-    // Redireciona a pagina
-    header("Location: login.html"); exit;
+// Redireciona a pagina
+//header("Location: login.html"); exit;
 
 ?>

@@ -1,3 +1,5 @@
+<?php
+
 include_once ("banco.php");
 
 function conectaBD() {
@@ -6,7 +8,7 @@ function conectaBD() {
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $resultado = "sim";
-        } catch(PDOException $e) {
+        } catch(PDOException $e) {
             $resultado = "falha";
             $conn = $e;
             }
@@ -15,8 +17,10 @@ function conectaBD() {
 }
 
 function salvarUsuario(){
-    echo "Chama funf conexao"
-    $conn, $resultado = conectaBD();
+    echo "Chama funf conexao";
+    $retornos = conectaBD();
+    $conn = $retornos[0];
+    $resultado = $retornos[1];
     
     // Inserindo dados
     $sql = "INSERT INTO usuarios (
@@ -29,6 +33,8 @@ function salvarUsuario(){
             '$email',
             '$senha',
             '1')";
-    echo "retornar func."
+    echo "retornar func.";
     return $conn;
 }
+
+?>
