@@ -30,6 +30,9 @@
     </header>
 
     <br>
+    <input type=button onClick="parent.location='animais_altera.php'" value='Animais'>
+
+    <br>
     <a href="sair.php">Sair</a>
 
   </main>

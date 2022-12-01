@@ -49,3 +49,9 @@ ___
 [Insert no BD a Hora Atual](https://pt.stackoverflow.com/questions/21794/campo-date-preecher-com-a-data-atual-automaticamente)
 
 [Emojis](https://gist.github.com/rxaviers/7360908)
+
+[Login PHP](https://celke.com.br/artigo/sistema-de-login-com-php-e-mysqli)
+
+[Github Mari](https://github.com/marianaccn/adotaPet)
+
+[Github Leandro](https://github.com/UleandroSI/PI_AdotaPet)

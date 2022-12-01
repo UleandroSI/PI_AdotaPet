@@ -1,6 +1,12 @@
 <?php
+//Incluindo a conexão com banco de dados   
+include_once("conexao.php");  
+	//Inicializado primeira a sessão para posteriormente recuperar valores das variáveis globais. 
+    session_start();
+
+
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Usuario</th></tr>";
+echo "<tr><th>Id</th><th>Nome</th><th>Nome</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator {
   function __construct($it) {
@@ -29,9 +35,9 @@ $email = 'admin@adotapet.com';
 $senha = 'admin';
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $stmt = $conn->prepare("SELECT usuarios_id, usuarios_nome FROM usuarios WHERE usuarios_email = '$email' AND usuarios_hash = 'sha1($senha)' AND usuarios_ativo = 1 LIMIT 1");
+  $conexao = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stmt = $conexao->prepare("SELECT animais_id, animais_nome, animais_img, FROM animais WHERE animais_ativo = 1");
   $stmt->execute();
 
   // set the resulting array to associative
@@ -42,7 +48,7 @@ try {
 } catch(PDOException $e) {
   echo "Error: " . $e->getMessage();
 }
-$conn = null;
+$conexao = null;
 echo "</table>";
 
 ?>
