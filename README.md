@@ -1,27 +1,46 @@
 # PI_AdotaPet
  ## Projeto Integrador UNIVESP 2022 - Adota Pet (Back-end)
 
-**banco.txt =** dados sobre construçao do BD
+**animais_altera.php =** Para alterar cadastro de animais no bd
 
-**banco.php =** dados de conexao do BD
+**animais.html =** Formulario padastrar animais no bd
 
-**teste.php =** testa conexao com BD
-
-**Index.html =** formulario que será preenchido pelos interessados em adotar.
+**aplica_animais.php =** Grava animais do formulario animais.html
 
 **aplica_from.php =** salva dados do formulario no BD
 
-**login.html =** tela de login para área restrita da ONG.
+**banco.txt =** dados sobre construçao/implantação do BD
 
-**validacao.php =** valida dados de acesso da tela de login para acessar area restrita.
-
-**restrito.php =** area restrita para acesso do ADM da ONG.
-- Inserir/Inativar animais para adoção.
+**banco.php =** dados de conexao do BD
 
 **cadastro.html =** Cadastrar usuário administrador da ONG. REMOVER
 
 **cadastro.php =** verifica se já existe usuario(email) cadastrado no banco, se nao existe salva novo usuario REMOVER
 
+**conexao.php =** Função de conexao com o BD
+
+**formulario.html =** formulario que será preenchido pelos interessados em adotar.
+
+**func.php =** Separar as funcoes em arquivo
+
+**login.php =** tela de login para área restrita da ONG.
+
+**modelo.php =** Arquivo html modelo
+
+**restrito.php =** area restrita para acesso do ADM da ONG.
+- Inserir/Inativar animais para adoção.
+
+**sair.php =** Encerra sessão de login
+
+**select.php =** select de teste do banco
+
+**teste.php =** testa conexao com BD
+
+**tryhow_css_parallax_demo.html =** pagina para redirecionar testes
+
+**valida.php =** valida dados de acesso da tela de login para acessar area restrita.
+
+**
 
 ---
 Links de referencias
